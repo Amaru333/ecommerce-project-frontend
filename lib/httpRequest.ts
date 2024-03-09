@@ -6,6 +6,7 @@
  * @returns {Promise<any>} - A Promise that resolves to the Axios response.
  */
 import axios from "axios";
+import { getLocalStorageAuthToken } from "./localStorageFunctions";
 
 const httpRequest = axios.create();
 
@@ -13,10 +14,10 @@ httpRequest.interceptors.request.use(
   (config) => {
     // If the auth parameter is not set to false, include the JWT token in the header
     if (config.params?.auth !== false) {
-      //   const token = localStorage.getItem("fone-auth-token");
-      const token = "Your JWT token here!";
+      const token = getLocalStorageAuthToken();
+      // const token = "Your JWT token here!";
       if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+        config.headers["auth-token"] = token;
       }
     }
 

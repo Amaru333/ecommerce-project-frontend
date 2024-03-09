@@ -7,6 +7,7 @@ import UIButton from "@/widgets/UIButton";
 import FormInput from "@/widgets/FormInput";
 import { SignupFormProps } from "@/interfaces/componentsInterfaces";
 import { useCreateUserMutation } from "./apiRequests";
+import { toast } from "sonner";
 
 const SignUpForm = ({ setSelectedTab }: SignupFormProps) => {
   // SIGN UP FUNCTIONALITIES
@@ -24,20 +25,24 @@ const SignUpForm = ({ setSelectedTab }: SignupFormProps) => {
   });
 
   const { mutate: createNewUser } = useCreateUserMutation();
-
   const onSubmit = () => {
     createNewUser(signupData, {
       onSuccess: (data) => {
+        toast.success("Successfully signed up", {
+          description: "Please sign in to continue",
+        });
         setSelectedTab("login");
       },
       onError: (error) => {
-        //TODO: handle error
-        console.log(error);
+        toast.error("Error", {
+          description: "We've encountered an error. Please try again later",
+        });
       },
     });
   };
+
   return (
-    <>
+    <div>
       <FormInput icon={<IoPersonSharp />} label="full name" id="name" type="text" placeholder="full name" value={signupData.name} onChange={(e) => setSignupData({ ...signupData, name: e.target.value })} />
       <FormInput icon={<MdEmail />} label="email" id="email" type="email" placeholder="abc@xyz.com" value={signupData.email} onChange={(e) => setSignupData({ ...signupData, email: e.target.value })} />
       <FormInput icon={<RiLockPasswordFill />} label="password" id="password" type="password" placeholder="••••••••" value={signupData.password} onChange={(e) => setSignupData({ ...signupData, password: e.target.value })} />
@@ -53,7 +58,7 @@ const SignUpForm = ({ setSelectedTab }: SignupFormProps) => {
           sign up
         </UIButton>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -5,12 +5,12 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Poppins', Courier, monospace;
-  background-color: rgb(241 245 249)
+    font-family: 'Poppins', Courier, monospace;
+    background-color: rgb(241 245 249)
 }
 
 @layer utilities {
-  .screen-container {
-    @apply max-w-screen-xl mx-auto px-4 w-full
-  }
+    .screen-container {
+        @apply max-w-screen-xl mx-auto px-4 w-full
+    }
 }
