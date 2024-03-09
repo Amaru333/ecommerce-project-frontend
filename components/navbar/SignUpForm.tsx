@@ -5,9 +5,10 @@ import { FaLocationDot } from "react-icons/fa6";
 import React, { useState } from "react";
 import UIButton from "@/widgets/UIButton";
 import FormInput from "@/widgets/FormInput";
-import axios from "axios";
+import { SignupFormProps } from "@/interfaces/componentsInterfaces";
+import { useCreateUserMutation } from "./apiRequests";
 
-const SignUpForm = () => {
+const SignUpForm = ({ setSelectedTab }: SignupFormProps) => {
   // SIGN UP FUNCTIONALITIES
   const [signupData, setSignupData] = useState({
     name: "",
@@ -22,9 +23,18 @@ const SignUpForm = () => {
     },
   });
 
+  const { mutate: createNewUser } = useCreateUserMutation();
+
   const onSubmit = () => {
-    axios.post("http://localhost:3001/api/users", signupData).then((res) => console.log(res.data));
-    // console.log(submitData);
+    createNewUser(signupData, {
+      onSuccess: (data) => {
+        setSelectedTab("login");
+      },
+      onError: (error) => {
+        //TODO: handle error
+        console.log(error);
+      },
+    });
   };
   return (
     <>
