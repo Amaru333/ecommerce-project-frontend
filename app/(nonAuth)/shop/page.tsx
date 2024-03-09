@@ -1,4 +1,4 @@
-import CategoriesSection from "@/components/shopPage/CategoriesSection";
+import CategoriesSection from "@/components/shopPage/categoriesPage/CategoriesSection";
 import React from "react";
 
 const Shop = () => {

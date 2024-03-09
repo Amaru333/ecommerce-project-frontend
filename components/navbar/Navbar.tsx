@@ -1,17 +1,22 @@
 "use client";
 
 import { NAVBAR_ITEMS } from "@/constants/navbarConstants";
+import UIModal from "@/widgets/UIModal";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import { FaUserLarge } from "react-icons/fa6";
 import { IoIosCart } from "react-icons/io";
+import LoginSignUpModal from "./LoginSignUpModal";
 
 const Navbar = () => {
   const pathname = usePathname();
-  console.log(pathname);
+
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
   return (
     <div className="bg-background text-white">
+      <LoginSignUpModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
       <div className="screen-container py-8 flex justify-between items-center">
         <div>
           <p className="text-2xl">FONE</p>
@@ -23,9 +28,13 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <div className="flex gap-x-12 items-center">
-          <FaUserLarge className="hover:text-blue-600 transition-all active:scale-95" />
-          <IoIosCart size={24} className="hover:text-blue-600 transition-all active:scale-95" />
+        <div className="flex gap-x-8 items-center">
+          <button className="hover:text-blue-600 transition-all active:scale-95 p-2" onClick={() => setIsLoginModalOpen(true)}>
+            <FaUserLarge />
+          </button>
+          <button className="hover:text-blue-600 transition-all active:scale-95 p-2">
+            <IoIosCart size={24} />
+          </button>
         </div>
       </div>
     </div>

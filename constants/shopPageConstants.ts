@@ -72,3 +72,154 @@ export const CATEGORIES = [
     image: "/assets/categories/others.jpeg",
   },
 ];
+
+export const PRODUCTS_PAGE = {
+  title: "iPhones",
+  products: [
+    {
+      id: 1,
+      category: "iphones",
+      name: "iPhone 13 Pro",
+      image: "/assets/categories/iphone.png",
+      cost_price: 1099,
+      selling_price: 999,
+      rating: 4.3,
+      number_of_reviews: 100,
+      description: "The iPhone 13 Pro is the best iPhone to date. It has the best camera, the best battery life, and the best performance of any iPhone. It is also the most expensive iPhone to date.",
+      stock: 100,
+      colors: [
+        {
+          name: "Black",
+          code: "#000000",
+          image: "/assets/categories/iphone.png",
+        },
+        {
+          name: "White",
+          code: "#ffffff",
+          image: "/assets/categories/iphone.png",
+        },
+        {
+          name: "Red",
+          code: "#ff0000",
+          image: "/assets/categories/iphone.png",
+        },
+      ],
+    },
+    {
+      id: 2,
+      category: "iphones",
+      name: "iPhone 13",
+      image: "/assets/categories/iphone.png",
+      cost_price: 899,
+      selling_price: 899,
+      rating: 4.3,
+      number_of_reviews: 100,
+      description: "The iPhone 13 is the best iPhone to date. It has the best camera, the best battery life, and the best performance of any iPhone. It is also the most expensive iPhone to date.",
+      stock: 100,
+      colors: [
+        {
+          name: "Black",
+          code: "#000000",
+          image: "/assets/categories/iphone.png",
+        },
+        {
+          name: "White",
+          code: "#ffffff",
+          image: "/assets/categories/iphone.png",
+        },
+        {
+          name: "Red",
+          code: "#ff0000",
+          image: "/assets/categories/iphone.png",
+        },
+      ],
+    },
+    {
+      id: 3,
+      category: "iphones",
+      name: "iPhone 12 Pro",
+      image: "/assets/categories/iphone.png",
+      cost_price: 799,
+      selling_price: 699,
+      rating: 4.8,
+      number_of_reviews: 100,
+      description: "The iPhone 12 Pro is the best iPhone to date. It has the best camera, the best battery life, and the best performance of any iPhone. It is also the most expensive iPhone to date.",
+      stock: 100,
+      colors: [
+        {
+          name: "Black",
+          code: "#000000",
+          image: "/assets/categories/iphone.png",
+        },
+        {
+          name: "White",
+          code: "#ffffff",
+          image: "/assets/categories/iphone.png",
+        },
+        {
+          name: "Red",
+          code: "#ff0000",
+          image: "/assets/categories/iphone.png",
+        },
+      ],
+    },
+    {
+      id: 4,
+      category: "iphones",
+      name: "iPhone 12",
+      image: "/assets/categories/iphone.png",
+      cost_price: 699,
+      selling_price: 699,
+      rating: 3.7,
+      number_of_reviews: 100,
+      description: "The iPhone 12 is the best iPhone to date. It has the best camera, the best battery life, and the best performance of any iPhone. It is also the most expensive iPhone to date.",
+      stock: 100,
+      colors: [
+        {
+          name: "Black",
+          code: "#000000",
+          image: "/assets/categories/iphone.png",
+        },
+        {
+          name: "White",
+          code: "#ffffff",
+          image: "/assets/categories/iphone.png",
+        },
+        {
+          name: "Red",
+          code: "#ff0000",
+          image: "/assets/categories/iphone.png",
+        },
+      ],
+    },
+    {
+      id: 5,
+      category: "iphones",
+      name: "iPhone 11 Pro",
+      image: "/assets/categories/iphone.png",
+      cost_price: 599,
+      selling_price: 599,
+      rating: 4.3,
+      number_of_reviews: 100,
+      description: "The iPhone 11 Pro is the best iPhone to date. It has the best camera, the best battery life, and the best performance of any iPhone. It is also the most expensive iPhone to date.",
+      stock: 100,
+      colors: [
+        {
+          name: "Black",
+          code: "#000000",
+          image: "/assets/categories/iphone.png",
+        },
+        {
+          name: "White",
+          code: "#ffffff",
+          image: "/assets/categories/iphone.png",
+        },
+        {
+          name: "Red",
+          code: "#ff0000",
+          image: "/assets/categories/iphone.png",
+        },
+      ],
+    },
+  ],
+};

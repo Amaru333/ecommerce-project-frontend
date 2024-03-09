@@ -13,14 +13,10 @@ export default function NonAuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <div className="min-h-screen flex flex-col">
-          <Navbar />
-          <div className="flex-1">{children}</div>
-          <Footer />
-        </div>
-      </body>
-    </html>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <div className="flex-1">{children}</div>
+      <Footer />
+    </div>
   );
 }
