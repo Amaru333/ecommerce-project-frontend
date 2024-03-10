@@ -16,7 +16,7 @@ export const useCreateUserMutation = () => {
 };
 
 //LOGIN USER
-const loginUser = async (user: IUserLogin) => {
+const loginUser = async (user: IUserLogin, closeModal: () => void) => {
   try {
     const res = await httpRequest.post(USER_LOGIN_ROUTE, user, { params: { auth: false } });
     console.log(res.headers);
@@ -24,6 +24,7 @@ const loginUser = async (user: IUserLogin) => {
     toast.success("Logged in", {
       description: "Successfully logged in. Please wait",
     });
+    closeModal();
     return res.data;
   } catch (error: any) {
     toast.error("Error logging in", {
@@ -32,6 +33,6 @@ const loginUser = async (user: IUserLogin) => {
     return error;
   }
 };
-export const useLoginUser = (userDetails: IUserLogin) => {
-  return useQuery({ queryKey: ["user-details"], queryFn: () => loginUser(userDetails), enabled: false });
+export const useLoginUser = (userDetails: IUserLogin, closeModal: () => void) => {
+  return useQuery({ queryKey: ["user-details"], queryFn: () => loginUser(userDetails, closeModal), enabled: false });
 };

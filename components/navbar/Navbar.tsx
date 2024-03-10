@@ -1,18 +1,24 @@
 "use client";
 
 import { NAVBAR_ITEMS } from "@/constants/navbarConstants";
-import UIModal from "@/widgets/UIModal";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { FaUserLarge } from "react-icons/fa6";
 import { IoIosCart } from "react-icons/io";
 import LoginSignUpModal from "./LoginSignUpModal";
+import { useQueryClient } from "@tanstack/react-query";
+import { IUserData } from "@/interfaces/userInterfaces";
+import UserContextMenu from "./UserContextMenu";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const queryClient = useQueryClient();
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  const userData: IUserData | undefined = queryClient.getQueryData(["user-details"]);
+  console.log(userData, "USER-DATA");
 
   return (
     <div className="bg-background text-white">
@@ -29,9 +35,13 @@ const Navbar = () => {
           ))}
         </div>
         <div className="flex gap-x-8 items-center">
-          <button className="hover:text-blue-600 transition-all active:scale-95 p-2" onClick={() => setIsLoginModalOpen(true)}>
-            <FaUserLarge />
-          </button>
+          {!userData?._id ? (
+            <button className="hover:text-blue-600 transition-all active:scale-95 p-2" onClick={() => setIsLoginModalOpen(true)}>
+              <FaUserLarge />
+            </button>
+          ) : (
+            <UserContextMenu userData={userData} />
+          )}
           <button className="hover:text-blue-600 transition-all active:scale-95 p-2">
             <IoIosCart size={24} />
           </button>

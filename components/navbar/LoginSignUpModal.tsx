@@ -17,7 +17,7 @@ const LoginSignUpModal = ({ isOpen, onClose }: ILoginSignUpModalProps) => {
           </button>
         ))}
       </div>
-      {selectedTab === "login" && <LoginForm />}
+      {selectedTab === "login" && <LoginForm closeModal={onClose} />}
       {selectedTab === "sign up" && <SignUpForm setSelectedTab={setSelectedTab} />}
     </UIModal>
   );

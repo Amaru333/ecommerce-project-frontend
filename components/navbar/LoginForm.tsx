@@ -4,14 +4,15 @@ import React, { useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useLoginUser } from "./apiRequests";
+import { LoginFormProps } from "@/interfaces/componentsInterfaces";
 
-const LoginForm = () => {
+const LoginForm = ({ closeModal }: LoginFormProps) => {
   // LOGIN FUNCTIONALITIES
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
-  const data = useLoginUser(loginData);
+  const data = useLoginUser(loginData, closeModal);
   const onSubmit = () => {
     data.refetch();
   };
